@@ -6,15 +6,40 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff1877F2),
-        title: Text(
-          'News App',
-          style: TextStyle(fontSize: 22, fontWeight: .bold),
-        ),
-        centerTitle: true,
+      appBar: AppBar(title: Text('News App')),
+      body: ItemCardNews(),
+    );
+  }
+}
+
+class ItemCardNews extends StatelessWidget {
+  const ItemCardNews({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(8),
+      margin: EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: .start,
+        spacing: 10,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.network(
+              src,
+              height: 200,
+              width: double.infinity,
+              fit: .cover,
+            ),
+          ),
+          Text('Europe', style: Theme.of(context).textTheme.titleSmall),
+          Text(
+            'Russian warship: Moskva sinks in Black Sea',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+        ],
       ),
-      body: Image.network(src),
     );
   }
 }
